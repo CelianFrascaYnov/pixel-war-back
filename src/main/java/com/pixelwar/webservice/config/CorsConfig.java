@@ -6,9 +6,17 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * Configuration de la gestion des autorisations CORS (Cross-Origin Resource Sharing).
+ */
 @Configuration
 public class CorsConfig {
 
+    /**
+     * Configuration de la source CORS.
+     *
+     * @return Configuration CORS.
+     */
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();

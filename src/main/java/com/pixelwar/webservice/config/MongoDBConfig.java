@@ -9,9 +9,18 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
+/**
+ * Configuration pour la connexion à MongoDB.
+ */
 @Configuration
 @EnableMongoRepositories(basePackages =  "com.pixelwar.webservice.repository")
 public class MongoDBConfig {
+
+    /**
+     * Bean pour le client MongoDB.
+     *
+     * @return Client MongoDB.
+     */
     @Bean
     public MongoClient mongoClient() {
         String connectionString = "mongodb+srv://celianfrasca:celianfrasca@cluster0.zyg3uzy.mongodb.net/?retryWrites=true&w=majority";
@@ -25,6 +34,11 @@ public class MongoDBConfig {
         return MongoClients.create(settings);
     }
 
+    /**
+     * Bean pour le template MongoDB.
+     *
+     * @return Template MongoDB.
+     */
     @Bean
     public MongoTemplate mongoTemplate() {
         return new MongoTemplate(mongoClient(), "pixelwarDB");
