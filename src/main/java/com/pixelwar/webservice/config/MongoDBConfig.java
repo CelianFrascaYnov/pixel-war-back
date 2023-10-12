@@ -4,6 +4,7 @@ import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -16,6 +17,18 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @EnableMongoRepositories(basePackages =  "com.pixelwar.webservice.repository")
 public class MongoDBConfig {
 
+    @Value("${mongodb.username}")
+    private String username;
+
+    @Value("${mongodb.password}")
+    private String password;
+
+    @Value("${mongodb.host}")
+    private String host;
+
+    @Value("${mongodb.database}")
+    private String database;
+
     /**
      * Bean pour le client MongoDB.
      *
@@ -23,7 +36,8 @@ public class MongoDBConfig {
      */
     @Bean
     public MongoClient mongoClient() {
-        String connectionString = "mongodb+srv://celianfrasca:celianfrasca@cluster0.zyg3uzy.mongodb.net/?retryWrites=true&w=majority";
+        // Utilisation des valeurs injectées pour construire la chaîne de connexion
+        String connectionString = "mongodb+srv://" + username + ":" + password + "@" + host + "/?retryWrites=true&w=majority";
 
         ConnectionString connectionStr = new ConnectionString(connectionString);
 
@@ -41,6 +55,6 @@ public class MongoDBConfig {
      */
     @Bean
     public MongoTemplate mongoTemplate() {
-        return new MongoTemplate(mongoClient(), "pixelwarDB");
+        return new MongoTemplate(mongoClient(), database);
     }
 }
