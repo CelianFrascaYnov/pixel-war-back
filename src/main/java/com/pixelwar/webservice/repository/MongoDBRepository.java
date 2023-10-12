@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MongoDBRepository extends MongoRepository<PixelData, String> {
+    PixelData findByXAndY(int x, int y);
 }
