@@ -7,13 +7,14 @@ import com.mongodb.client.MongoClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @Configuration
+@EnableMongoRepositories(basePackages =  "com.pixelwar.webservice.repository")
 public class MongoDBConfig {
-
     @Bean
     public MongoClient mongoClient() {
-        String connectionString = "mongodb+srv://celianfrasca:celianfrasca@pixelwar.5actlyo.mongodb.net/?retryWrites=true&w=majority";
+        String connectionString = "mongodb+srv://celianfrasca:celianfrasca@cluster0.zyg3uzy.mongodb.net/?retryWrites=true&w=majority";
 
         ConnectionString connectionStr = new ConnectionString(connectionString);
 
