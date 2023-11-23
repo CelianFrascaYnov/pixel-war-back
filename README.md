@@ -7,10 +7,19 @@ Voir le fichier de dépôt des rendus pour avoir les identifiants.
 
 Utiliser le package manager [Maven](https://maven.apache.org/install.html) pour l'installer.
 
-## Usage
+### Cloner le Répertoire
 
-ATTENTION : Il faut rajouter les variables d'environnement qui sont contenues dans le fichier application.properties avec les informations données dans le fichier de dépôt.
+Clonez le dépôt Git :
 
-```maven
-mvn spring-boot:run
+```bash
+git clone https://github.com/CelianFrascaYnov/pixel-war-back.git
+cd pixel-war-back
+mvn clean install
 ```
+
+Construisez l'image Docker et lancer votre application avec :
+```bash
+docker-compose up --build
+```
+
+Votre application devrait maintenant être accessible à l'adresse `http://localhost:8080`.

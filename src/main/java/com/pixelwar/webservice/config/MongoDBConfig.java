@@ -17,16 +17,16 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @EnableMongoRepositories(basePackages =  "com.pixelwar.webservice.repository")
 public class MongoDBConfig {
 
-    @Value("${mongodb.username}")
+    @Value("${MONGODB.USERNAME}")
     private String username;
 
-    @Value("${mongodb.password}")
+    @Value("${MONGODB.PASSWORD}")
     private String password;
 
-    @Value("${mongodb.host}")
+    @Value("${MONGODB.HOST}")
     private String host;
 
-    @Value("${mongodb.database}")
+    @Value("${MONGODB.DATABASE}")
     private String database;
 
     /**

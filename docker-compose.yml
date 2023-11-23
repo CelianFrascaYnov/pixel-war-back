@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  mon-app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      MONGODB.DATABASE: pixelwarDB
+      MONGODB.HOST: cluster0.zyg3uzy.mongodb.net
+      MONGODB.USERNAME: celianfrasca
+      MONGODB.PASSWORD: celianfrasca
+volumes:
+  db:
+    driver: local
