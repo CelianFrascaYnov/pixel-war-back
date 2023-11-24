@@ -14,7 +14,6 @@ Clonez le dépôt Git :
 ```bash
 git clone https://github.com/CelianFrascaYnov/pixel-war-back.git
 cd pixel-war-back
-mvn clean install
 ```
 
 Construisez l'image Docker et lancer votre application avec :
